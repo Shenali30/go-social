@@ -31,6 +31,12 @@ public class ApiError {
         this.debugMessage = ex.getLocalizedMessage();
     }
 
+    public ApiError(HttpStatus httpStatus, String message) {
+        this();
+        this.httpStatus = httpStatus;
+        this.message = message;
+    }
+
     public ApiError(HttpStatus httpStatus, String message, Throwable ex) {
         this();
         this.httpStatus = httpStatus;

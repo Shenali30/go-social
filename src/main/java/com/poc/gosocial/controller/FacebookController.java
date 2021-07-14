@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class FacebookController {
 
+    @Autowired
     private final Facebook facebook;
 
-    @Autowired
     public FacebookController(Facebook facebook){
         this.facebook = facebook;
     }
 
     @GetMapping("/profile")
     public ResponseEntity<Profile> getPageProfile(){
-        log.info("API REQUEST: GET [FACEBOOK] page profile");
+        log.info("[FACEBOOK] API REQUEST: GET page profile");
         return facebook.getProfile();
     }
 
     @GetMapping("/feed")
     public ResponseEntity<Feed> getPageFeed(){
-        log.info("API REQUEST: GET [FACEBOOK] page feed");
+        log.info("[FACEBOOK] API REQUEST: GET page feed");
         return facebook.getFeed();
     }
 
     @PostMapping("/post")
     public ResponseEntity<PostReply> postToFeed(@RequestBody PostMessage message){
-        log.info("API REQUEST: POST [FACEBOOK] message to feed");
+        log.info("[FACEBOOK] API REQUEST: POST message to feed");
         return facebook.postMessage(message);
     }
 }

@@ -16,22 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class TwitterController {
 
+    @Autowired
     private final Twitter twitter;
 
-    @Autowired
     public TwitterController(Twitter twitter) {
         this.twitter = twitter;
     }
 
     @GetMapping("/search")
-    public ResponseEntity<AllTweets> searchByKeyword(@RequestParam("query") String queryKeyWord){
-        log.info("API REQUEST: GET [TWITTER] recent tweets for given keyword");
+    public ResponseEntity<AllTweets> searchByKeyword(@RequestParam(value = "query") String queryKeyWord){
+        log.info("[TWITTER] API REQUEST: GET recent tweets for given keyword");
         return twitter.searchByKeyword(queryKeyWord);
     }
 
     @GetMapping("/timeline")
-    public ResponseEntity<AllTweets> getTimeline(@RequestParam("username") String username){
-        log.info("API REQUEST: GET [TWITTER] timeline of given username");
+    public ResponseEntity<AllTweets> getTimeline(@RequestParam(value = "username") String username){
+        log.info("[TWITTER] API REQUEST: GET timeline of given username");
         return twitter.getTimeline(username);
     }
 

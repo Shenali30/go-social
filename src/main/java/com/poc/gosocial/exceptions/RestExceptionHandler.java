@@ -22,8 +22,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatus status,
             WebRequest request){
         ServletWebRequest servletWebRequest = (ServletWebRequest) request;
-        log.info("{} to {}", servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
         String error = "'"+ex.getParameterName()+"'" + " parameter is not present";
+
+        log.info("[EXCEPTION] "+ex+" for {} {}",servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
+
         return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, error, ex));
     }
 
@@ -34,9 +36,11 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatus status,
             WebRequest request) {
         ServletWebRequest servletWebRequest = (ServletWebRequest) request;
-        log.info("{} to {}", servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
         String error = "Malformed JSON request";
-        return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, error, ex));
+
+        log.info("[EXCEPTION] " + ex + " for {} {}",servletWebRequest.getHttpMethod(), servletWebRequest.getRequest().getServletPath());
+
+        return buildResponseEntity(new ApiError(HttpStatus.BAD_REQUEST, error));
     }
 
     private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {
