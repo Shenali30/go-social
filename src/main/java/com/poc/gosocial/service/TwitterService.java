@@ -1,6 +1,6 @@
 package com.poc.gosocial.service;
 
-import com.poc.gosocial.models.twitter.AllTweets;
+import com.poc.gosocial.domain.twitter.AllTweets;
 import org.springframework.http.ResponseEntity;
 
 public interface TwitterService {

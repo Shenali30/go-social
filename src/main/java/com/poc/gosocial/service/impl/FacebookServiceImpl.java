@@ -1,14 +1,12 @@
 package com.poc.gosocial.service.impl;
 
 import com.poc.gosocial.api.ApiBinding;
-import com.poc.gosocial.models.facebook.Feed;
-import com.poc.gosocial.models.facebook.PostMessage;
-import com.poc.gosocial.models.facebook.PostReply;
-import com.poc.gosocial.models.facebook.Profile;
+import com.poc.gosocial.domain.facebook.Feed;
+import com.poc.gosocial.domain.facebook.PostMessage;
+import com.poc.gosocial.domain.facebook.PostReply;
+import com.poc.gosocial.domain.facebook.Profile;
 import com.poc.gosocial.service.FacebookService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;

@@ -1,4 +1,4 @@
-package com.poc.gosocial.models.twitter;
+package com.poc.gosocial.domain.twitter;
 
 import lombok.Data;
 

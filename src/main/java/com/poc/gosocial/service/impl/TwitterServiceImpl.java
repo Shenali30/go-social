@@ -1,9 +1,9 @@
 package com.poc.gosocial.service.impl;
 
 import com.poc.gosocial.api.ApiBinding;
-import com.poc.gosocial.models.twitter.AllTweets;
-import com.poc.gosocial.models.twitter.User;
-import com.poc.gosocial.models.twitter.UserInfo;
+import com.poc.gosocial.domain.twitter.AllTweets;
+import com.poc.gosocial.domain.twitter.User;
+import com.poc.gosocial.domain.twitter.UserInfo;
 import com.poc.gosocial.service.TwitterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

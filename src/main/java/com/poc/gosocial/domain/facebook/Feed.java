@@ -1,4 +1,4 @@
-package com.poc.gosocial.models.facebook;
+package com.poc.gosocial.domain.facebook;
 
 import lombok.Data;
 
