@@ -1,9 +1,10 @@
-package com.poc.gosocial.api.twitter;
+package com.poc.gosocial.service.impl;
 
 import com.poc.gosocial.api.ApiBinding;
-import com.poc.gosocial.api.twitter.models.AllTweets;
-import com.poc.gosocial.api.twitter.models.User;
-import com.poc.gosocial.api.twitter.models.UserInfo;
+import com.poc.gosocial.models.twitter.AllTweets;
+import com.poc.gosocial.models.twitter.User;
+import com.poc.gosocial.models.twitter.UserInfo;
+import com.poc.gosocial.service.TwitterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,12 @@ import java.util.Map;
 import java.util.Objects;
 
 @Slf4j
-public class Twitter extends ApiBinding implements TwitterServices{
+public class TwitterServiceImpl extends ApiBinding implements TwitterService {
 
     // using twitter API V2 early access
     private static final String TWITTER_API_BASE_URL_V2 = "https://api.twitter.com/2";
 
-    public Twitter(String bearerToken){
+    public TwitterServiceImpl(String bearerToken){
         super(bearerToken);
     }
 

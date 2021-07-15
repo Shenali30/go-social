@@ -1,6 +1,6 @@
 package com.poc.gosocial.config;
 
-import com.poc.gosocial.api.twitter.Twitter;
+import com.poc.gosocial.service.impl.TwitterServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ public class TwitterConfig {
     private String twitterBearerToken;
 
     @Bean
-    public Twitter twitter(){
-        return new Twitter(twitterBearerToken);
+    public TwitterServiceImpl twitter(){
+        return new TwitterServiceImpl(twitterBearerToken);
     }
 }

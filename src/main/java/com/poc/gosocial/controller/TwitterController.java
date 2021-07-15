@@ -1,7 +1,7 @@
 package com.poc.gosocial.controller;
 
-import com.poc.gosocial.api.twitter.Twitter;
-import com.poc.gosocial.api.twitter.models.AllTweets;
+import com.poc.gosocial.service.TwitterService;
+import com.poc.gosocial.models.twitter.AllTweets;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,22 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class TwitterController {
 
     @Autowired
-    private final Twitter twitter;
+    private final TwitterService twitterService;
 
-    public TwitterController(Twitter twitter) {
-        this.twitter = twitter;
+    public TwitterController(TwitterService twitterService) {
+        this.twitterService = twitterService;
     }
 
     @GetMapping("/search")
     public ResponseEntity<AllTweets> searchByKeyword(@RequestParam(value = "query") String queryKeyWord){
         log.info("[TWITTER] API REQUEST: GET recent tweets for given keyword");
-        return twitter.searchByKeyword(queryKeyWord);
+        return twitterService.searchByKeyword(queryKeyWord);
     }
 
     @GetMapping("/timeline")
     public ResponseEntity<AllTweets> getTimeline(@RequestParam(value = "username") String username){
         log.info("[TWITTER] API REQUEST: GET timeline of given username");
-        return twitter.getTimeline(username);
+        return twitterService.getTimeline(username);
     }
 
 }

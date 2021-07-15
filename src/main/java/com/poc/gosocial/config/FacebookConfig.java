@@ -1,6 +1,6 @@
 package com.poc.gosocial.config;
 
-import com.poc.gosocial.api.facebook.Facebook;
+import com.poc.gosocial.service.impl.FacebookServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ public class FacebookConfig {
     private String pageAccessToken;
 
     @Bean
-    public Facebook facebook(){
-        return new Facebook(pageAccessToken);
+    public FacebookServiceImpl facebook(){
+        return new FacebookServiceImpl(pageAccessToken);
     }
 }

@@ -1,11 +1,14 @@
-package com.poc.gosocial.api.facebook;
+package com.poc.gosocial.service.impl;
 
 import com.poc.gosocial.api.ApiBinding;
-import com.poc.gosocial.api.facebook.models.Feed;
-import com.poc.gosocial.api.facebook.models.PostMessage;
-import com.poc.gosocial.api.facebook.models.PostReply;
-import com.poc.gosocial.api.facebook.models.Profile;
+import com.poc.gosocial.models.facebook.Feed;
+import com.poc.gosocial.models.facebook.PostMessage;
+import com.poc.gosocial.models.facebook.PostReply;
+import com.poc.gosocial.models.facebook.Profile;
+import com.poc.gosocial.service.FacebookService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -13,11 +16,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @Slf4j
-public class Facebook extends ApiBinding implements FacebookServices{
+public class FacebookServiceImpl extends ApiBinding implements FacebookService {
 
     private static final String FB_GRAPH_API_BASE_URL = "https://graph.facebook.com/v11.0";
 
-    public Facebook(String pageAccessToken) {
+    public FacebookServiceImpl(String pageAccessToken) {
         super(pageAccessToken);
     }
 

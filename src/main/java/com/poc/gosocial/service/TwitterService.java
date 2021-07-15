@@ -1,9 +1,9 @@
-package com.poc.gosocial.api.twitter;
+package com.poc.gosocial.service;
 
-import com.poc.gosocial.api.twitter.models.AllTweets;
+import com.poc.gosocial.models.twitter.AllTweets;
 import org.springframework.http.ResponseEntity;
 
-public interface TwitterServices {
+public interface TwitterService {
 
     ResponseEntity<AllTweets> searchByKeyword(String queryKeyWord);
 
